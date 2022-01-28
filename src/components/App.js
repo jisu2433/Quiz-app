@@ -1,49 +1,45 @@
-import "../App.css";
 import React, {useState} from "react";
-import {Quizzes} from "../Constants";
-import Button from "./Button";
+import {QUIZZES} from "../constants";
+import {ThemeProvider} from "styled-components";
+import theme from "../theme";
+import Container from "./Container"
+import AnswerGroup from "./AnswerGroup";
+import QuestionSection from "./QuestionSection";
+import ResultSection from "./ResultSection";
+import GlobalStyle from "../globalStyle";
 
 function App() {
   const [currentNo, setCurrentNo] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
+
   const handleClick = (isCorrect) => {
-    if (isCorrect){
-      setScore(score => score+1)
-    } 
-    if(currentNo === Quizzes.length-1) {
+		if (isCorrect) {
+			setScore((score) => score + 1);
+		}
+    if(currentNo === QUIZZES.length-1) {
       setShowResult(true);
     } else {
       setCurrentNo((currentNo) => currentNo + 1);
     }
   };
-  const convertedScore = Math.floor((score/Quizzes.length)*100);
+  const convertedScore = Math.floor((score / QUIZZES.length)*100);
 
-  return <div className="container">
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle/>
       {showResult ? (
-        <div className="app">
-          <h1 className="result-header">당신의 점수는?</h1>
-          <p className="result-score">{convertedScore}</p>
-        </div>
+        <Container>
+          <ResultSection convertedScore={convertedScore}></ResultSection>
+        </Container>
       ) : (
-        <div className="app">
-          <div className="question-section">
-            <h1 className="question-header">
-              <span>{Quizzes[currentNo].id}</span>/{Quizzes.length}
-            </h1>
-            <div className="question=text">{Quizzes[currentNo].question}</div>
-          </div>
-          <div className="answer-section">
-            {Quizzes[currentNo].answers.map((answer) => (
-              <Button 
-                text={answer.text}
-                onclick={() => handleClick(answer.isCorrect)}
-              />
-            ))}
-          </div>
-        </div>
+        <Container>
+          <QuestionSection currentNo={currentNo}/>
+          <AnswerGroup currentNo={currentNo} handleClick={handleClick}/>
+        </Container>
       )}
-  </div>    
+  </ThemeProvider>    
+);
 }
 
 export default App;

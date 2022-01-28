@@ -1,4 +1,4 @@
-const Quizzes = [
+const QUIZZES = [
     {
         id: 1,
         question : "다음 중 무라카미 하루키의 책은?",
@@ -41,4 +41,4 @@ const Quizzes = [
     },
     ];  
 
-export {Quizzes};
+export {QUIZZES};
