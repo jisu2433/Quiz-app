@@ -1,7 +1,6 @@
-import Container from "../../components/Container";
+import {Container, Button} from "components";
 import styled from "styled-components";
-import image from "../../components/assets/images/img.jpg";
-import Button from "../../components/Button";
+import image from "components/assets/images/img.jpg";
 import { Link } from "react-router-dom";
 
 const Title = styled.h1`
