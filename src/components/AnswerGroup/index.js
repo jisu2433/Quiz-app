@@ -15,9 +15,9 @@ const AnswerGroup = ({ currentNo, handleClick}) => (
     <AnswerGroupWrapper>
         {QUIZZES[currentNo].answers.map((answer) => (
             <Button
-                text={answer.text}
-                onClick={() => handleClick(answer.isCorrect)}
-            ></Button>
+                key={answer.text}
+                onClick={() => handleClick(answer.isCorrect)}>
+                {answer.text}</Button>
         ))}
     </AnswerGroupWrapper>
 );

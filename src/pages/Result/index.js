@@ -1,6 +1,4 @@
-import Container from "../../components/Container";
-import ResultSection from "../../components/ResultSection";
-import Button from "../../components/Button";
+import {Button, Container, ResultSection} from "components";
 import { Link } from "react-router-dom";
 import { QUIZZES } from "../../constants";
 
@@ -10,9 +8,9 @@ const Result = ({score, setScore}) => {
     return (
     <Container>
         <ResultSection convertedScore={convertedScore}></ResultSection>
-        <Link to ="/">
-            <Button text = "테스트 다시하기"></Button>
-        </Link>
+        <Button onClick={() => setScore(0)} to="/">
+            테스트 다시하기
+        </Button>
     </Container>
     );
 };

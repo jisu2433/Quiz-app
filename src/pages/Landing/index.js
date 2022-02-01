@@ -41,9 +41,7 @@ const Landing = () => (
         <Text>
             무라카미 하루키는 한국 독자의 꾸준한 사랑을 받고 있습니다. 당신도 하루키를 좋아하시나요?
         </Text>
-        <Link to="/quiz">
-            <Button text="내가 얼마나 하루키를 좋아하는지 알아보기"></Button>
-        </Link>
+        <Button to="/quiz">내가 하루키를 좋아하는지 알아보기</Button>
     </Container>
 );
 
