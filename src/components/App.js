@@ -12,14 +12,14 @@ function App() {
         <ThemeProvider theme={theme}>
             <GlobalStyle />
             <Router>
-              <Route path="/loading">
-                <Loading/>
-              </Route>
               <Route path="/result">
                 <Result score={score} setScore={setScore} />
               </Route>
               <Route path="/quiz">
                 <Quiz setScore={setScore} />
+              </Route>
+              <Route path="/loading">
+                <Loading />
               </Route>
               <Route path="/" exact>
                 <Landing />

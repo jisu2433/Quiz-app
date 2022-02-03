@@ -35,13 +35,15 @@ const Text = styled.p`
 
 const Landing = () => (
     <Container>
-        <Title>무라카미 하루키 애정도 테스트</Title>
+        <Title>하루키 테스트</Title>
         <SubTitle>당신은 하루키에 대해 얼마나 알고 있나요?</SubTitle>
         <StyledImage src={image} alt="image"></StyledImage>
         <Text>
             무라카미 하루키는 한국 독자의 꾸준한 사랑을 받고 있습니다. 당신도 하루키를 좋아하시나요?
         </Text>
-        <Button to="/quiz">내가 하루키를 좋아하는지 알아보기</Button>
+        <Link to="/quiz">
+            <Button>내가 하루키를 좋아하는지 알아보기</Button>
+        </Link>
     </Container>
 );
 
